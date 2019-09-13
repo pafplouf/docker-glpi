@@ -1,0 +1,35 @@
+version: "3.2"
+
+services:
+  sql:
+    image: mariadb:latest
+    container_name: sql
+    volumes:
+      - mariadb:/var/lib/mysql
+    env_file:
+      - ./mysql.env
+    restart: always
+    networks:
+      - mikanetwork
+
+  glpi:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name : glpi-mika
+    ports:
+      - "80:80"
+    volumes:
+      - ./glpi:/var/www/html/glpi
+    depends_on:
+      - sql
+    environment:
+      - TIMEZONE=Europe/Paris
+    restart: always
+    networks:
+      - mikanetwork
+networks:
+  mikanetwork:
+
+volumes:
+  mariadb:
