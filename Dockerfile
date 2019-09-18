@@ -18,6 +18,7 @@ php-mbstring \
 php-xml \
 php-apcu-bc \
 php-cas \
+php-soap \
 cron \
 wget \
 jq \
