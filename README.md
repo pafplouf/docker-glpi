@@ -1,5 +1,6 @@
 # docker-glpi
-## Just a few docker-compose file to deploy GLPI
+## Just few configuration file to deploy GLPI
+### docker-compose.yaml :
 
     version: "3.2"
 
@@ -32,3 +33,9 @@
 
     volumes:
       mariadb:
+
+### mysql.env :
+    MYSQL_ROOT_PASSWORD=root
+    MYSQL_DATABASE=glpidb
+    MYSQL_USER=glpi_user
+    MYSQL_PASSWORD=glpi
