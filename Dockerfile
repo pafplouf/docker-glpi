@@ -24,6 +24,9 @@ wget \
 jq \
 nano
 
+RUN echo "Europe/Paris" > /etc/timezone
+RUN dpkg-reconfigure -f noninteractive tzdata
+
 COPY glpi.sh /opt/
 RUN chmod +x /opt/glpi.sh
 ENTRYPOINT ["/opt/glpi.sh"]
