@@ -2,6 +2,8 @@ FROM debian:latest
 
 MAINTAINER P@fpl0uf "mikael.paulhiout@outlook.com"
 
+RUN apt-get install apt-utils
+
 RUN apt update \
 && apt -y upgrade \
 && apt -y install \
