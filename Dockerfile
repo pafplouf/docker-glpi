@@ -26,8 +26,8 @@ wget \
 jq \
 nano
 
-RUN echo "Europe/Paris" > /etc/timezone
-RUN dpkg-reconfigure -f noninteractive tzdata
+ENV TZ=Europe/Paris
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 COPY glpi.sh /opt/
 RUN chmod +x /opt/glpi.sh
